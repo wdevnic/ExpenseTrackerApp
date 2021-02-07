@@ -5,7 +5,7 @@ module.exports = {
     mode: "production",
     entry: './src/app.js',
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'public', 'dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -19,9 +19,10 @@ module.exports = {
                 {
                   loader: MiniCssExtractPlugin.loader,
                   options: {
+
                     publicPath: (resourcePath, context) => {
                       return (
-                        path.relative(path.dirname(resourcePath), context) + '/'
+                        path.relative(path.dirname(resourcePath), context) 
                       );
                     },
                   },
