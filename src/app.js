@@ -3,7 +3,7 @@
  import {Provider} from 'react-redux'
  import AppRouter from './router/AppRouter'
  import configureStore from './store/configureStore'
- import { startAddExpense, startSetExpense } from './actions/expenses'
+ import { startSetExpense } from './actions/expenses'
  import 'normalize.css/normalize.css'
  import './styles/styles.scss'
  import 'react-dates/lib/css/_datepicker.css';
@@ -21,9 +21,9 @@
 
  ReactDOM.render(<p>Loading...</p>, document.getElementById('app'))
 
- store.dispatch(startAddExpense().then(() => {
+ store.dispatch(startSetExpense()).then(() => {
     ReactDOM.render(jsx, document.getElementById('app'))
- }))
+ })
 
  
   
