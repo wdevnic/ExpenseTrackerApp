@@ -1,9 +1,14 @@
 const path = require('path')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 
 module.exports = {
     entry: './src/app.js',
+    output: {
+        path: path.join(__dirname, 'public', 'dist'),
+        filename: 'bundle.js'
+    },
     module: {
         rules: [{
             loader: 'babel-loader',
@@ -12,25 +17,26 @@ module.exports = {
         },{
             test: /\.s?css$/,
             use: [
-                'style-loader',
+                {
+                  loader: MiniCssExtractPlugin.loader,
+                  options: {
+
+                    publicPath: (resourcePath, context) => {
+                      return (
+                        path.relative(path.dirname(resourcePath), context) 
+                      );
+                    },
+                  },
+                },
                 'css-loader',
-                'sass-loader'
-            ]
+                'sass-loader',
+              ]
         }]
     },
-    output: {
-        path: path.join(__dirname, 'public'),
-        filename: 'bundle.js'
-    },
-    
-
     plugins: [
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            title: 'Production'
-        })
-    ],
-
-    
-
+        new MiniCssExtractPlugin({
+          filename: 'main.css',
+        }),
+        new CleanWebpackPlugin()
+      ]
 }

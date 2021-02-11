@@ -1,53 +1,7 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 
-module.exports = {
+module.exports = merge(common, {
     mode: "production",
-    entry: './src/app.js',
-    output: {
-        path: path.join(__dirname, 'public', 'dist'),
-        filename: 'bundle.js'
-    },
-    module: {
-        rules: [{
-            loader: 'babel-loader',
-            test: /\.js$/ ,
-            exclude: /node_modules/
-        },{
-            test: /\.s?css$/,
-            use: [
-                {
-                  loader: MiniCssExtractPlugin.loader,
-                  options: {
-
-                    publicPath: (resourcePath, context) => {
-                      return (
-                        path.relative(path.dirname(resourcePath), context) 
-                      );
-                    },
-                  },
-                },
-                'css-loader',
-                'sass-loader',
-              ]
-        }]
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-          filename: 'main.css',
-        }),
-      ],
-}
-
-
-
-/* 
-{
-    test: /\.s?css$/,
-    use: [
-        'style-loader',
-        'css-loader',
-        'sass-loader'
-    ]
-}]
-} */
+    devtool: 'source-map'
+})

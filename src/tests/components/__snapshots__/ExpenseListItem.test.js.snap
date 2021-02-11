@@ -3,7 +3,6 @@
 exports[`should render ExpenseTestItem 1`] = `
 <div>
   <Link
-    activeClassName="is-active"
     to="/edit/1"
   >
     <h3>
