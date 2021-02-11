@@ -1,7 +1,7 @@
 const path = require('path')
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
-const webpack = require('webpack')
+//const webpack = require('webpack')
 
 process.env.NODE_ENV = 'development'
 
@@ -19,7 +19,7 @@ module.exports = merge(common,{
         historyApiFallback: true,
         publicPath: '/dist/'
     },
-    plugins:[
+    /* plugins:[
         new webpack.DefinePlugin({
             'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
             'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
@@ -29,5 +29,5 @@ module.exports = merge(common,{
             'process.env.FIREBASE_MESSEGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSEGING_SENDER_ID),
             'process.env.FIREBASE_APP_ID': JSON.stringify(process.env.FIREBASE_APP_ID)
         })
-    ]
+    ] */
 })
