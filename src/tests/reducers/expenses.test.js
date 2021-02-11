@@ -87,7 +87,7 @@ test('should not edit expense if expense not found', () =>{
 
 test('should set expenses', () => {
     const action = {
-        type: 'SAVE_EXPENSES',
+        type: 'SET_EXPENSES',
         expenses: [expenses[1]]
     }
 
