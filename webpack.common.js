@@ -3,7 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack')
 
-module.exports = {
+
+module.exports = env => ({
     entry: './src/app.js',
     output: {
         path: path.join(__dirname, 'public', 'dist'),
@@ -48,4 +49,4 @@ module.exports = {
           'process.env.FIREBASE_APP_ID': JSON.stringify(process.env.FIREBASE_APP_ID)
       })
       ]
-}
+})
