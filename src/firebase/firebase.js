@@ -1,6 +1,7 @@
 import React from 'react'
 import firebase from 'firebase/app'
 import 'firebase/database'
+import 'firebase/auth'
 
 // as takes named exports and add them as single variable
 <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
@@ -17,8 +18,9 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
   const database = firebase.database()
+  const googleAuthProvider  = new firebase.auth.GoogleAuthProvider() 
 
-  export  { firebase, database as default}
+  export  { firebase, googleAuthProvider, database as default}
 
 
 
