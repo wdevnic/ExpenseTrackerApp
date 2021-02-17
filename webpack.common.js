@@ -5,7 +5,7 @@ const webpack = require('webpack')
 
 
 module.exports = env => ({
-    entry: './src/app.js',
+    entry: ["@babel/polyfill", './src/app.js'],
     output: {
         path: path.join(__dirname, 'public', 'dist'),
         filename: 'bundle.js'
@@ -27,10 +27,17 @@ module.exports = env => ({
                         path.relative(path.dirname(resourcePath), context) 
                       );
                     },
+
                   },
                 },
-                'css-loader',
-                'sass-loader',
+                {
+                  loader: 'css-loader',
+                  options: {
+                      sourceMap: true,
+                      url: false
+                  }
+              },
+                'sass-loader'
               ]
         }]
     },
