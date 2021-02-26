@@ -1,7 +1,22 @@
-#Git Commands
+# Expense Tracker App
 
-git init - Create a new git repo
-git status - View the changes to your project code
-git add - Add files to staging area
-git commit = Creates a new commit with files staging area
-git log - View recent commits
+## Table of contents
+* [Introduction](#introduction)
+* [Live Demo](#demo)
+* [Technologies](#technologies)
+* [Status](#status)
+
+
+## Introduction
+Expense tracking web app, integrated with Google login and Firebase database. 
+
+## Live Demo
+
+https://react-expensify-z.herokuapp.com/
+
+
+## Technologies
+React, Redux, React-Router, Jest, Webpack, Firebase
+
+## Status
+Adding new features
